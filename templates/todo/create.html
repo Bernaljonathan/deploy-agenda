@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+
+{% block 'title' %} crear tarea {{ contact.name }}{% endblock  %}
+
+{% block 'styles' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock  %}
+
+{% block 'content'  %}
+
+<span class="aux-btns"><a href="{% url 'todo' %}">Volver atrás</a></span>
+<form action="{% url 'todo_create' id=id %}" method="POST">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    
+    </table>
+    <div>
+        <input type="submit" value="Enviar" class="btn-send" />
+    </div>
+    
+
+</form>
+
+{% endblock  %}

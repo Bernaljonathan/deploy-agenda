@@ -1,0 +1,1 @@
+web: gunicorn agenda - copia (6).wsgi --log.file -
